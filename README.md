@@ -1,4 +1,5 @@
 # pandakey (WIP)
+Aim here is to write a text completion plugin, comparable in performance and quality to swiftkey on mobile, for Vim. Similar to swiftkey, the auto-completions from this plugin are meant for general text, and not for code.
 
 ## Installation
 
@@ -15,6 +16,9 @@ Use your plugin manager of choice.
 - [vim-plug](https://github.com/junegunn/vim-plug)
   - Add `Plug 'https://github.com/sainathadapa/pandakey'` to .vimrc
   - Run `:PlugInstall`
+
+## Status/Version history
+- 2016-12-29 : Project created
 
 ## Resources (in no particular order)
 - [Writing vim plugins in python](https://www.youtube.com/watch?v=vMAeYp8mX_M)
