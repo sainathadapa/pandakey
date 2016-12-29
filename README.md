@@ -17,6 +17,10 @@ Use your plugin manager of choice.
   - Add `Plug 'https://github.com/sainathadapa/pandakey'` to .vimrc
   - Run `:PlugInstall`
 
+## People
+- [Manoj Sukhavasi](https://github.com/manojsukhavasi)
+- [Sainath Adapa](https://github.com/sainathadapa)
+
 ## Status/Version history
 - 2016-12-29 : Project created
 
