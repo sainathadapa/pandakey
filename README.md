@@ -1,7 +1,4 @@
-# pandakey
-
-## Description
-**WIP**
+# pandakey (WIP)
 
 ## Installation
 
