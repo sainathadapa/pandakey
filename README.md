@@ -1,5 +1,8 @@
 # pandakey
 
+## Description
+**WIP**
+
 ## Installation
 
 Use your plugin manager of choice.
@@ -16,7 +19,5 @@ Use your plugin manager of choice.
   - Add `Plug 'https://github.com/sainathadapa/pandakey'` to .vimrc
   - Run `:PlugInstall`
 
-## Todo
-
-1. Write a plugin
-2. Write documentation
+## Resources (in no particular order)
+- [Writing vim plugins in python](https://www.youtube.com/watch?v=vMAeYp8mX_M)
