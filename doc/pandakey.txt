@@ -1,0 +1,27 @@
+*pandakey.txt* A short multi line description of your plugin
+
+===============================================================================
+CONTENTS                                                             *pandakey*
+
+    1. Intro ................................................. |pandakey-intro|
+    2. Requirements ................................... |pandakey-requirements|
+    3. Usage ................................................. |pandakey-usage|
+    4. Licence ............................................. |pandakey-licence|
+===============================================================================
+1. Intro                                                       *pandakey-intro*
+
+Overview of plugin
+
+2. Requirements                                         *pandakey-requirements*
+
+What additional programs are required to run the plugin
+
+3. Usage                                                       *pandakey-usage*
+
+How to use the plugin. What functions does it give the user?
+
+4. Licence                                                   *pandakey-licence*
+
+This is open source make sure to include a licence
+
+vim:ft=help
