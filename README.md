@@ -26,3 +26,7 @@ Use your plugin manager of choice.
 
 ## Resources (in no particular order)
 - [Writing vim plugins in python](https://www.youtube.com/watch?v=vMAeYp8mX_M)
+- help :complete-functions
+- [vim-plugin-starter-kit wiki](https://github.com/JarrodCTaylor/vim-plugin-starter-kit/wiki)
+- [YouCompleteMe - writing new semantic completers](https://github.com/Valloric/YouCompleteMe#writing-new-semantic-completers)
+- [What's the difference between omnifunc and completefunc except the invocation key mapping?](http://stackoverflow.com/questions/6941842/whats-the-difference-between-omnifunc-and-completefunc-except-the-invocation-ke)
