@@ -30,5 +30,5 @@ Use your plugin manager of choice.
 - [vim-plugin-starter-kit wiki](https://github.com/JarrodCTaylor/vim-plugin-starter-kit/wiki)
 - [YouCompleteMe - writing new semantic completers](https://github.com/Valloric/YouCompleteMe#writing-new-semantic-completers)
 - [What's the difference between omnifunc and completefunc except the invocation key mapping?](http://stackoverflow.com/questions/6941842/whats-the-difference-between-omnifunc-and-completefunc-except-the-invocation-ke)
-- [http://vi.stackexchange.com/questions/4584/how-to-create-my-own-autocomplete-function](http://vi.stackexchange.com/questions/4584/how-to-create-my-own-autocomplete-function)
-- [http://stackoverflow.com/questions/18191874/writing-completefunc-in-python](http://stackoverflow.com/questions/18191874/writing-completefunc-in-python)
+- [How to create my own autocomplete function](http://vi.stackexchange.com/questions/4584/how-to-create-my-own-autocomplete-function)
+- [writing completefunc in python](http://stackoverflow.com/questions/18191874/writing-completefunc-in-python)
