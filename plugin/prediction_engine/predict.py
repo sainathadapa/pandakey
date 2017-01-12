@@ -3,7 +3,7 @@ import random
 import os
 import pickle
 
-def predict(history):
+def predict(dict_words, history):
     ''' Gives back the best prediction for next word '''
 
     hist_words = []
@@ -27,9 +27,6 @@ def predict(history):
         print "How the fuck should I predict if you don't give me any input"
         needed_words = 2 * ['undef']
 
-    pkl_file =os.path.join(os.path.dirname(__file__),'nGramData.pkl')
-    with open(pkl_file, 'rb') as handle:
-        dict_words = pickle.load(handle)
     word = 'fuck'
     count = 1
     for nGram in dict_words.keys():
@@ -41,7 +38,13 @@ def predict(history):
     return word
 
 if __name__ == "__main__":
-    hist = raw_input("Enter two words :")
-    print predict(hist.split())
+    pkl_file = os.path.join(os.path.dirname(__file__), 'nGramData.pkl')
+    with open(pkl_file, 'rb') as handle:
+        dict_words = pickle.load(handle)
+
+    hist = ""
+    while(hist != "quit"):
+        hist = raw_input("Enter two words :")
+        print predict(dict_words, hist.split())
 
 
