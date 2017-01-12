@@ -1,19 +1,18 @@
 # This is the code for training data to
 # calculate the prob for the n-grams
-
 from __future__ import division
-from . import ngram
-
 from collections import defaultdict
-
+#from . import ngram
 import nltk
+import pickle
+import os
 
-def training:
+def training():
     """ Trains the n-gram language model and returns dict"""
 
     from nltk.corpus import brown
     # all the text from brown corpus
-    # raw_text = [];
+    raw_text = [];
     for cat in brown.categories():
         raw_text.extend(brown.words(categories=cat))
 
@@ -24,10 +23,17 @@ def training:
     #fD_2gram = nltk.FreqDist(nltk.bigrams(brown_words))
     fD_3gram = nltk.FreqDist(nltk.trigrams(brown_words))
 
-    dictNGrams = defaultdict(int)
+    dict_ngrams = defaultdict(int)
 
-    for nGram, count in fD_3gram:
-        dictNGrams[nGram] = count
+    for nGram, count in fD_3gram.items():
+        dict_ngrams[nGram] = count
 
-    return dictNGrams
+    nGramData = os.path.join(os.path.dirname(__file__),'nGramData.pkl')
 
+    with open(nGramData, 'wb') as handle:
+        pickle.dump(dict_ngrams, handle, -1)
+
+
+if __name__ == "__main__":
+    print "Training started"
+    training()
