@@ -1,5 +1,7 @@
+# Code is compatible for python 2 and 3
 from __future__ import division
-import random
+from __future__ import print_function
+from builtins import input
 import os
 import pickle
 
@@ -16,15 +18,15 @@ def predict(dict_words, history):
     needed_words = []
 
     if no_of_words>2:
-        print "2 words are enough for prediction"
+        print ("2 words are enough for prediction")
         needed_words = hist_words[-2:]
     elif no_of_words==2:
         needed_words=hist_words
     elif no_of_words==1:
-        print "Please input at least 2 words for prediction"
+        print ("Please input at least 2 words for prediction")
         needed_words = hist_words.append('undef')
     else:
-        print "How the fuck should I predict if you don't give me any input"
+        print ("How the fuck should I predict if you don't give me any input")
         needed_words = 2 * ['undef']
 
     word = 'fuck'
@@ -44,7 +46,7 @@ if __name__ == "__main__":
 
     hist = ""
     while(hist != "quit"):
-        hist = raw_input("Enter two words :")
-        print predict(dict_words, hist.split())
+        hist = input("Enter two words :")
+        print (predict(dict_words, hist.split()))
 
 
