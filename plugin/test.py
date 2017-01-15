@@ -4,7 +4,7 @@ from __future__ import print_function
 from builtins import input
 import os
 import pickle
-from prediction_engine import predict
+from prediction_engine.predict import predict
 
 pkl_file = 'prediction_engine/nGramData.pkl'
 with open(pkl_file, 'rb') as handle:
