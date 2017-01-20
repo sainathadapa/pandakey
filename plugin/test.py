@@ -10,7 +10,7 @@ pkl_file = 'prediction_engine/nGramData.pkl'
 with open(pkl_file, 'rb') as handle:
     dict_words = pickle.load(handle)
 
-hist = "where are"
+hist = "how are"
 print (predict(dict_words, hist.split()))
 
 
