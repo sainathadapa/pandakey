@@ -23,11 +23,12 @@ pkl_file = 'prediction_engine/nGramData.pkl'
 with open(pkl_file, 'rb') as handle:
     dict_words = pickle.load(handle)
 
-hist = "where is"
-s = predict(dict_words, hist.split())
+full_hist = vim.eval('a:base').split()
+hist = full_hist[-2:]
+predicted = predict(dict_words, hist)
+ans = ' '.join(full_hist) + ' ' + predicted
 
-# s = "I"
-vim.command("let sInVim = '%s'"% s)
+vim.command("let sInVim = '%s'"% ans)
 EOF
 echo sInVim
 return sInVim
@@ -45,7 +46,7 @@ function! TestComplete2(findstart, base)
         return start
     else
         let sInVim = TestNGram(a:findstart, a:base)
-        return [sInVim, "and this"]
+        return [sInVim, "placeholder"]
     endif
 endfun
 
