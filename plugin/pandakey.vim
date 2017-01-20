@@ -5,60 +5,28 @@ python3 import sys
 python3 import vim
 python3 sys.path.append(vim.eval('expand("<sfile>:h")'))
 
-" example usage of python
-function! TemplateExample()
-python3 << endOfPython
-
-from pandakey import pandakey_example
-
-for n in range(5):
-    print(pandakey_example())
-
-endOfPython
-endfunction
-
-"  Expose our commands to the user
-command! Example call TemplateExample()
-
-" example of returning values from python to vim
-function! TestPy2()
+function! TestNGram(findstart, base)
 python3 << EOF
+from __future__ import division
+from __future__ import print_function
+from builtins import input
+import os
+import pickle
 import vim
-s = range(10)
-vim.command("let sInVim = %s"% s)
-EOF
-    echo type(sInVim)
-    echo sInVim
-endfunction
-
-" example of a autocomplete function
-function! TestComplete(findstart, base)
-    if a:findstart
-        " locate the start of the word
-        let line = getline('.')
-        let start = col('.') - 1
-        while start > 0 && (line[start - 1] =~ '\a' || line[start - 1] =~ '.' || line[start - 1] =~ '-')
-            let start -= 1
-        endwhile
-        return start
-    else
-        return ["this works!", "nice!"]
-    endif
-endfun
-
-" shortcut Ctrl-X Ctrl-U
-set completefunc=TestComplete
-
-" example of a autocomplete function in python
-function! TestCompletePy(findstart, base)
-python3 << EOF
-import vim
+from prediction_engine.predict import predict
 
 # printing arguments
 print(vim.eval('a:findstart'))
 print(vim.eval('a:base'))
 
-s = "I"
+pkl_file = 'prediction_engine/nGramData.pkl'
+with open(pkl_file, 'rb') as handle:
+    dict_words = pickle.load(handle)
+
+hist = "where is"
+s = predict(dict_words, hist.split())
+
+# s = "I"
 vim.command("let sInVim = '%s'"% s)
 EOF
 echo sInVim
@@ -76,10 +44,11 @@ function! TestComplete2(findstart, base)
         endwhile
         return start
     else
-        let sInVim = TestCompletePy(a:findstart, a:base)
+        let sInVim = TestNGram(a:findstart, a:base)
         return [sInVim, "and this"]
     endif
 endfun
+
 set completefunc=TestComplete2
 
 
