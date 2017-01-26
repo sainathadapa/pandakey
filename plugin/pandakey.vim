@@ -7,25 +7,20 @@ python3 sys.path.append(vim.eval('expand("<sfile>:h")'))
 
 function! TestNGram(findstart, base)
 python3 << EOF
-from __future__ import division
-from __future__ import print_function
-from builtins import input
-import os
-import pickle
+import http.client as ht
 import vim
-from prediction_engine.predict import predict
 
 # printing arguments
 print(vim.eval('a:findstart'))
 print(vim.eval('a:base'))
 
-pkl_file = 'prediction_engine/nGramData.pkl'
-with open(pkl_file, 'rb') as handle:
-    dict_words = pickle.load(handle)
-
 full_hist = vim.eval('a:base').split()
 hist = full_hist[-2:]
-predicted = predict(dict_words, hist)
+
+c = ht.HTTPConnection('localhost', 8080)
+c.request('POST', '/process', '{"input": ["' + hist[0] + '", "' + hist[1] + '"]}')
+predicted = c.getresponse().read().decode('UTF-8')
+
 ans = ' '.join(full_hist) + ' ' + predicted
 
 vim.command("let sInVim = '%s'"% ans)
