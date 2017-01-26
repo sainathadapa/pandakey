@@ -22,6 +22,7 @@ Use your plugin manager of choice.
 - [Sainath Adapa](https://github.com/sainathadapa)
 
 ## Status/Version history
+- 2017-01-26 : Moved to a server-client architecture
 - 2017-01-21 : Trivial implementation of a static N-gram model based completion
 - 2016-12-29 : Project created
 
