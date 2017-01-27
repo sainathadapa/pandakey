@@ -2,9 +2,8 @@
 Aim here is to write a text completion plugin, comparable in performance and quality to swiftkey on mobile, for Vim (and/or for Emacs, NeoVim). Similar to swiftkey, the auto-completions from this plugin are meant for general text, and not for code.
 
 ## Installation
-
+### Getting the code
 Use your plugin manager of choice.
-
 - [Pathogen](https://github.com/tpope/vim-pathogen)
   - `git clone https://github.com/sainathadapa/pandakey ~/.vim/bundle/pandakey`
 - [Vundle](https://github.com/gmarik/vundle)
@@ -16,6 +15,10 @@ Use your plugin manager of choice.
 - [vim-plug](https://github.com/junegunn/vim-plug)
   - Add `Plug 'https://github.com/sainathadapa/pandakey'` to .vimrc
   - Run `:PlugInstall`
+
+### Configuration
+- Add `set completefunc=Pandakey` to the vimrc file
+
 
 ## People
 - [Manoj Sukhavasi](https://github.com/manojsukhavasi)
