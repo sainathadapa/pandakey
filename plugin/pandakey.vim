@@ -5,7 +5,7 @@ python3 import sys
 python3 import vim
 python3 sys.path.append(vim.eval('expand("<sfile>:h")'))
 
-function! TestNGram(findstart, base)
+function! GetNgram(findstart, base)
 python3 << EOF
 import http.client as ht
 import vim
@@ -29,7 +29,7 @@ echo sInVim
 return sInVim
 endfunction
 
-function! TestComplete2(findstart, base)
+function! Pandakey(findstart, base)
     if a:findstart
         echo "this worked"
         " locate the start of the word
@@ -40,11 +40,9 @@ function! TestComplete2(findstart, base)
         endwhile
         return start
     else
-        let sInVim = TestNGram(a:findstart, a:base)
+        let sInVim = GetNgram(a:findstart, a:base)
         return [sInVim, "placeholder"]
     endif
 endfun
-
-set completefunc=TestComplete2
 
 
