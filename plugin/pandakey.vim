@@ -1,6 +1,3 @@
-" --------------------------------
-" Add our plugin to the path
-" --------------------------------
 python3 import sys
 python3 import vim
 python3 sys.path.append(vim.eval('expand("<sfile>:h")'))
@@ -32,20 +29,35 @@ else:
 
 vim.command("let sInVim = '%s'"% ans)
 EOF
-echo sInVim
 return sInVim
+endfunction
+
+function! GetCompletionStart(currentline)
+python3 << EOF
+import vim
+
+this_line = vim.eval('a:currentline')
+
+# splitting the full line
+full_hist = this_line.split()
+
+if len(full_hist) < 2:
+  # if the there are less than two words, there is nothing to do here
+  ans = '-3'
+else:
+  ans = len(this_line) - len(full_hist[-1]) - len(full_hist[-2]) - 2
+  ans = str(ans)
+
+vim.command("let findstartans = %s"% ans)
+EOF
+return findstartans
 endfunction
 
 function! Pandakey(findstart, base)
     if a:findstart
-        echo "this worked"
-        " locate the start of the word
-        let line = getline('.')
-        let start = col('.') - 1
-        while start > 0 && (line[start - 1] =~ '\a' || line[start - 1] =~ '.' || line[start - 1] =~ '-')
-            let start -= 1
-        endwhile
-        return start
+        let findstartans = GetCompletionStart(getline('.'))
+        echo findstartans
+        return findstartans
     else
         let sInVim = GetNgram(a:findstart, a:base)
         return [sInVim, "placeholder"]
