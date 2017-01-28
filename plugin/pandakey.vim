@@ -45,7 +45,7 @@ if len(full_hist) < 2:
   # if the there are less than two words, there is nothing to do here
   ans = '-3'
 else:
-  ans = len(this_line) - len(full_hist[-1]) - len(full_hist[-2]) - 2
+  ans = len(this_line) - len(full_hist[-1]) - len(full_hist[-2]) - 1
   ans = str(ans)
 
 vim.command("let findstartans = %s"% ans)
