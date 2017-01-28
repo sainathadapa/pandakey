@@ -14,14 +14,21 @@ import vim
 print(vim.eval('a:findstart'))
 print(vim.eval('a:base'))
 
+# splitting the full line
 full_hist = vim.eval('a:base').split()
-hist = full_hist[-2:]
 
-c = ht.HTTPConnection('localhost', 8080)
-c.request('POST', '/process', '{"input": ["' + hist[0] + '", "' + hist[1] + '"]}')
-predicted = c.getresponse().read().decode('UTF-8')
-
-ans = ' '.join(full_hist) + ' ' + predicted
+if len(full_hist) < 2:
+  # if the there are less than two words, there is nothing to do here
+  ans = ''
+else:
+  # getting the last two words
+  hist = full_hist[-2:]
+  # connecting to the server and getting predictions
+  c = ht.HTTPConnection('localhost', 8080)
+  c.request('POST', '/process', '{"input": ["' + hist[0] + '", "' + hist[1] + '"]}')
+  predicted = c.getresponse().read().decode('UTF-8')
+  # joining the prediction with the original data
+  ans = ' '.join(full_hist) + ' ' + predicted
 
 vim.command("let sInVim = '%s'"% ans)
 EOF
